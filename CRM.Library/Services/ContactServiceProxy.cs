@@ -8,7 +8,11 @@ namespace CRM.Library.Services
     {
 
         private ContactServiceProxy() {
-            contacts = new List<Contact>();
+            contacts = new List<Contact> { 
+                new Contact{Name = "John Smith"}
+                , new Contact {Name = "Jane Doe"}
+            
+            };
         }
 
         private static ContactServiceProxy? instance;

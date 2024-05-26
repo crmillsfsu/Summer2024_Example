@@ -14,7 +14,10 @@ namespace CRM.MAUI
             BindingContext = new MainViewModel();
         }
 
-       
+        private void Clicked(object sender, EventArgs e)
+        {
+            Shell.Current.GoToAsync("//Management");
+        }
     }
 
 }

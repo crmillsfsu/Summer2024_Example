@@ -26,7 +26,7 @@ namespace CRM.MAUI.ViewModels
 
         public MainViewModel()
         {
-            Title = "Hello World!";
+            Title = "Some Different String!";
         }
     }
 }

@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CRM.MAUI.MainPage">
+             x:Class="CRM.MAUI.MainPage"
+             >
 
     <ScrollView>
         <Grid>
@@ -60,6 +61,7 @@
             <Grid Grid.Row="3"></Grid>
             <Button Grid.Row="4"
                 Text="This is a button"
+                Clicked="Clicked"
                 />
         </Grid>
     </ScrollView>

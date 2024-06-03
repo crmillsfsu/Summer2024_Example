@@ -13,8 +13,15 @@ namespace CRM.MAUI.ViewModels
                 return ContactServiceProxy.Current?.Contacts?.ToList() ?? new List<Models.Contact>();
             }
         }
+
+        public Models.Contact SelectedContact { get; set; }
         public ContactManagementViewModel() { 
             
+        }
+
+        public void UpdateContact()
+        {
+            ContactServiceProxy.Current.AddOrUpdate(SelectedContact);
         }
     }
 }

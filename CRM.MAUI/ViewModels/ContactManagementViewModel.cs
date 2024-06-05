@@ -6,22 +6,28 @@ namespace CRM.MAUI.ViewModels
 {
     public class ContactManagementViewModel
     {
-        public List<Models.Contact> Contacts
+        public List<ContactViewModel> Contacts
         {
             get
             {
-                return ContactServiceProxy.Current?.Contacts?.ToList() ?? new List<Models.Contact>();
+                return ContactServiceProxy.Current?.Contacts?.Select(c => new ContactViewModel(c)).ToList() 
+                    ?? new List<ContactViewModel>();
             }
         }
 
-        public Models.Contact SelectedContact { get; set; }
+        public ContactViewModel SelectedContact { get; set; }
         public ContactManagementViewModel() { 
             
         }
 
         public void UpdateContact()
         {
-            ContactServiceProxy.Current.AddOrUpdate(SelectedContact);
+            if(SelectedContact.Contact == null)
+            {
+                return;
+            }
+
+            ContactServiceProxy.Current.AddOrUpdate(SelectedContact.Contact);
         }
     }
 }

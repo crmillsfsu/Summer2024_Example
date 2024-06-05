@@ -1,4 +1,6 @@
-﻿namespace CRM.Models
+﻿using System.Windows.Input;
+
+namespace CRM.Models
 {
     public class Contact
     {
@@ -19,13 +21,7 @@
         }
         public string? EmailAddress { get; set; }
 
-        public string? Display
-        {
-            get
-            {
-                return ToString();
-            }
-        }
+
 
         public Contact()
         {

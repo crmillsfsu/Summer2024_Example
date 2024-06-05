@@ -9,8 +9,8 @@ namespace CRM.Library.Services
 
         private ContactServiceProxy() {
             contacts = new List<Contact> { 
-                new Contact{Name = "John Smith"}
-                , new Contact {Name = "Jane Doe"}
+                new Contact{Name = "John Smith", Id=1}
+                , new Contact {Name = "Jane Doe", Id=2}
             
             };
         }

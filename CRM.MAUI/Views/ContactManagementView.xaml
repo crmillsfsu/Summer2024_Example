@@ -6,6 +6,40 @@
     <VerticalStackLayout>
         <ListView
             ItemsSource="{Binding Contacts}"
+            SelectedItem="{Binding SelectedContact}"
+            >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Text="{Binding Id}" />
+                            <Label Grid.Column="1" Text="{Binding Name}" FontAttributes="Bold"/>
+                            <Label Grid.Column="2" Text="{Binding PhoneNumber}"/>
+                            <Label Grid.Column="3" Text="{Binding Email}"/>
+                            <Button Grid.Column="4" 
+                                    Text="Edit"
+                                    Command="{Binding Path=EditCommand}"
+                                    CommandParameter="{Binding}"
+                                    />
+                            <Button Grid.Column="5" Text="Email"></Button>
+                            <Button Grid.Column="6" Text="Delete"></Button>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button
+            Text="Edit"
+            Clicked="EditClicked"
             />
         <Button
             Text="Go Back"

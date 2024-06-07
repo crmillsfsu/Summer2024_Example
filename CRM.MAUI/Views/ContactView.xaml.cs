@@ -1,10 +1,11 @@
 using CRM.MAUI.ViewModels;
 
 namespace CRM.MAUI.Views;
-
+[QueryProperty(nameof(ContactId), "contactId")]
 public partial class ContactView : ContentPage
 {
-	public ContactView()
+    public int ContactId { get; set; }
+    public ContactView()
 	{
 		InitializeComponent();
         
@@ -23,6 +24,6 @@ public partial class ContactView : ContentPage
 
     private void ContentPage_NavigatedTo(object sender, NavigatedToEventArgs e)
     {
-        BindingContext = new ContactViewModel();
+        BindingContext = new ContactViewModel(ContactId);
     }
 }

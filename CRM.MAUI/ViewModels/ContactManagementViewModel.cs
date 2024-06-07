@@ -35,11 +35,12 @@ namespace CRM.MAUI.ViewModels
 
         public void UpdateContact()
         {
-            if(SelectedContact.Contact == null)
+            if(SelectedContact?.Contact == null)
             {
                 return;
             }
-
+            Shell.Current.GoToAsync($"//Contact?contactId={SelectedContact.Contact.Id}");
+            //$"//ProjectDetail?clientId={Model.ClientId}"
             ContactServiceProxy.Current.AddOrUpdate(SelectedContact.Contact);
         }
     }

@@ -34,11 +34,11 @@ namespace CRM.MAUI.ViewModels
 
         private void ExecuteEdit(ContactViewModel? p)
         {
-            if(p == null)
+            if(p?.Contact == null)
             {
                 return;
             }
-            //Shell.Current.GoToAsync($"//ProjectDetail?clientId={p.Model.ClientId}&projectId={p?.Model?.Id ?? 0}");
+            Shell.Current.GoToAsync($"//Contact?contactId={p.Contact.Id}");
         }
 
         public void Add()
@@ -56,6 +56,15 @@ namespace CRM.MAUI.ViewModels
         {
             Contact = new Contact();
             SetupCommands();
+        }
+
+        public ContactViewModel(int id)
+        {
+            Contact = ContactServiceProxy.Current?.Contacts?.FirstOrDefault(c => c.Id == id); 
+            if(Contact == null)
+            {
+                Contact = new Contact();
+            }
         }
 
         public ContactViewModel(Contact c)

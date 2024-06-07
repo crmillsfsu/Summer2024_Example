@@ -1,11 +1,20 @@
 ﻿using CRM.Library.Services;
 using CRM.Models;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 
 namespace CRM.MAUI.ViewModels
 {
-    public class ContactManagementViewModel
+    public class ContactManagementViewModel : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         public List<ContactViewModel> Contacts
         {
             get
@@ -18,6 +27,10 @@ namespace CRM.MAUI.ViewModels
         public ContactViewModel SelectedContact { get; set; }
         public ContactManagementViewModel() { 
             
+        }
+
+        public void RefreshContacts() {
+            NotifyPropertyChanged("Contacts");
         }
 
         public void UpdateContact()

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CRM.Library.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -38,6 +39,11 @@ namespace CRM.MAUI.ViewModels
                 return;
             }
             //Shell.Current.GoToAsync($"//ProjectDetail?clientId={p.Model.ClientId}&projectId={p?.Model?.Id ?? 0}");
+        }
+
+        public void Add()
+        {
+            ContactServiceProxy.Current.AddOrUpdate(Contact);
         }
 
         public void SetupCommands()

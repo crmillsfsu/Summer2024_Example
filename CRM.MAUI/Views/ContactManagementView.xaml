@@ -2,7 +2,9 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CRM.MAUI.Views.ContactManagementView"
-             Title="ContactManagementView">
+             Title="ContactManagementView"
+             NavigatedTo="ContentPage_NavigatedTo"
+             NavigatedFrom="ContentPage_NavigatedFrom">
     <VerticalStackLayout>
         <ListView
             ItemsSource="{Binding Contacts}"
@@ -37,6 +39,10 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <Button
+            Text="Add"
+            Clicked="AddClicked"
+            />
         <Button
             Text="Edit"
             Clicked="EditClicked"

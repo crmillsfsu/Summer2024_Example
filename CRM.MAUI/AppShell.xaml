@@ -18,4 +18,9 @@
         ContentTemplate="{DataTemplate views:ContactManagementView}"
         Route="Management" />
 
+    <ShellContent
+        Title="Management"
+        ContentTemplate="{DataTemplate views:ContactView}"
+        Route="Contact" />
+
 </Shell>

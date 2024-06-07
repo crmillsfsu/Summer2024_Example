@@ -54,7 +54,7 @@ namespace CRM.Library.Services
                 return 0;
             }
         }
-        public Contact? AddOrUpdate(Contact contact)
+        public Contact? AddOrUpdate(Contact? contact)
         {
             if(contacts == null)
             {

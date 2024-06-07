@@ -15,8 +15,24 @@ public partial class ContactManagementView : ContentPage
     {
         (BindingContext as ContactManagementViewModel).UpdateContact();
     }
+
+    private void AddClicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync("//Contact");
+    }
+
     private void BackClicked(object sender, EventArgs e)
     {
         Shell.Current.GoToAsync("//MainPage");
+    }
+
+    private void ContentPage_NavigatedTo(object sender, NavigatedToEventArgs e)
+    {
+        (BindingContext as ContactManagementViewModel).RefreshContacts();
+    }
+
+    private void ContentPage_NavigatedFrom(object sender, NavigatedFromEventArgs e)
+    {
+
     }
 }

@@ -16,6 +16,11 @@ public partial class ContactManagementView : ContentPage
         (BindingContext as ContactManagementViewModel).UpdateContact();
     }
 
+    private void DeleteClicked(object sender, EventArgs e)
+    {
+        (BindingContext as ContactManagementViewModel).DeleteContact();
+    }
+
     private void AddClicked(object sender, EventArgs e)
     {
         Shell.Current.GoToAsync("//Contact");
@@ -34,5 +39,10 @@ public partial class ContactManagementView : ContentPage
     private void ContentPage_NavigatedFrom(object sender, NavigatedFromEventArgs e)
     {
 
+    }
+
+    private void InlineDelete_Clicked(object sender, EventArgs e)
+    {
+        (BindingContext as ContactManagementViewModel).RefreshContacts();
     }
 }

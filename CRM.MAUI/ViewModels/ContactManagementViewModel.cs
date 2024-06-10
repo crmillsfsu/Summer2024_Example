@@ -42,5 +42,16 @@ namespace CRM.MAUI.ViewModels
             Shell.Current.GoToAsync($"//Contact?contactId={SelectedContact.Contact.Id}");
             ContactServiceProxy.Current.AddOrUpdate(SelectedContact.Contact);
         }
+
+        public void DeleteContact()
+        {
+            if (SelectedContact?.Contact == null)
+            {
+                return;
+            }
+
+            ContactServiceProxy.Current.Delete(SelectedContact.Contact.Id);
+            RefreshContacts();
+        }
     }
 }

@@ -40,7 +40,6 @@ namespace CRM.MAUI.ViewModels
                 return;
             }
             Shell.Current.GoToAsync($"//Contact?contactId={SelectedContact.Contact.Id}");
-            //$"//ProjectDetail?clientId={Model.ClientId}"
             ContactServiceProxy.Current.AddOrUpdate(SelectedContact.Contact);
         }
     }

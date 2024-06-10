@@ -13,6 +13,7 @@ namespace CRM.MAUI.ViewModels
     public class ContactViewModel
     {
         public ICommand? EditCommand { get; private set; }
+        public ICommand? DeleteCommand { get; private set; }
 
         public Contact? Contact;
 
@@ -41,6 +42,16 @@ namespace CRM.MAUI.ViewModels
             Shell.Current.GoToAsync($"//Contact?contactId={p.Contact.Id}");
         }
 
+        private void ExecuteDelete(int? id)
+        {
+            if (id == null)
+            {
+                return;
+            }
+
+            ContactServiceProxy.Current.Delete(id ?? 0);
+        }
+
         public void Add()
         {
             ContactServiceProxy.Current.AddOrUpdate(Contact);
@@ -50,6 +61,8 @@ namespace CRM.MAUI.ViewModels
         {
             EditCommand = new Command(
                (c) => ExecuteEdit(c as ContactViewModel));
+            DeleteCommand = new Command(
+               (c) => ExecuteDelete((c as ContactViewModel)?.Contact?.Id));
         }
 
         public ContactViewModel()
